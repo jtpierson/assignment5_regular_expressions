@@ -6,17 +6,18 @@ import State
 
 class BinaryDetector : Detector {
     private var state: State = FirstValueState()
+
     override fun isValid(string: String): Boolean {
+        if (string.last().toString() != "1") return false
+
         for (letter in string) {
             when (state) {
                 InvalidState -> return false
                 else -> state = state.nextLetter(letter.toString())
             }
         }
-        return when (string.last().toString()) {
-            "1" -> state is ValidState
-            else -> false
-        }
+        return state is ValidState
+
 
     }
 }
