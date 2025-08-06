@@ -1,11 +1,11 @@
-package binary
-
+package email
 import Detector
-import InvalidState
 import State
+import InvalidState
+import binary.ValidState
 
-class BinaryDetector : Detector {
-    private var state: State = FirstValueState()
+class EmailDetector : Detector {
+    private var state : State = FirstValueState()
     override fun isValid(string: String): Boolean {
         for (letter in string) {
             when (state) {
@@ -13,10 +13,7 @@ class BinaryDetector : Detector {
                 else -> state = state.nextLetter(letter.toString())
             }
         }
-        return when (string.last().toString()) {
-            "1" -> state is ValidState
-            else -> false
-        }
 
+        return state is ValidState
     }
 }
