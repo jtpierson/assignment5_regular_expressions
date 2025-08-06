@@ -1,14 +1,15 @@
-package integer
+package _float
 
 import Detector
 import InvalidState
 import State
 
-class IntegerDetector : Detector {
-    private var state: State = FirstValueState()
+class FloatDetector : Detector {
+    private var state : State = FirstValueState()
+
     override fun isValid(string: String): Boolean {
         for (letter in string) {
-            when (state) {
+            when(state) {
                 InvalidState -> return false
                 else -> state = state.nextLetter(letter.toString())
             }
