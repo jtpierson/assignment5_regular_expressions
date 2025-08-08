@@ -5,9 +5,9 @@ import InvalidState
 import State
 
 class FloatDetector : Detector {
-    private var state : State = FirstValueState()
 
     override fun isValid(string: String): Boolean {
+        var state : State = FirstValueState()
         for (letter in string) {
             when(state) {
                 InvalidState -> return false

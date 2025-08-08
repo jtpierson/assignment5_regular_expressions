@@ -8,10 +8,7 @@ import utils.CharSets.DIGIT_ZERO_INCLUDED
 
 class HasSpecialState : State {
     override fun nextLetter(letter: String): State = when(letter) {
-        SPECIAL_CHARS -> this
-        LOWER_CASE -> this
-        DIGIT_ZERO_INCLUDED -> this
-        UPPER_CASE -> ValidState()
-        else -> InvalidState
+        in UPPER_CASE -> ValidState()
+        else -> this
     }
 }

@@ -7,11 +7,5 @@ import utils.CharSets.LOWER_CASE
 import utils.CharSets.DIGIT_ZERO_INCLUDED
 
 class ValidState : State{
-    override fun nextLetter(letter: String): State = when(letter) {
-        SPECIAL_CHARS -> this
-        LOWER_CASE -> this
-        UPPER_CASE -> this
-        DIGIT_ZERO_INCLUDED -> this
-        else -> InvalidState
-    }
+    override fun nextLetter(letter: String): State = this
 }

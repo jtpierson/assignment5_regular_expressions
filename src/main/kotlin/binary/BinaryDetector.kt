@@ -5,10 +5,9 @@ import InvalidState
 import State
 
 class BinaryDetector : Detector {
-    private var state: State = FirstValueState()
-
     override fun isValid(string: String): Boolean {
-        if (string.last().toString() != "1") return false
+        var state: State = FirstValueState()
+        if (string.lastOrNull().toString() != "1") return false
 
         for (letter in string) {
             when (state) {

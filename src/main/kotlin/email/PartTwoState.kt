@@ -5,7 +5,7 @@ import InvalidState
 
 class PartTwoState : State {
     override fun nextLetter(letter: String): State = when(letter) {
-        "." -> ValidState()
+        "." -> PartThreeStartState()
         "@" -> InvalidState
         " " -> InvalidState
         else -> this
